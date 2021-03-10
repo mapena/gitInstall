@@ -1,7 +1,5 @@
 ---
 - hosts: RH8
   tasks:
-    - name: instalacion de git 
-      yum: name=git state=present
-    - name: saludo
-      shell echo hola  2>&1
+    - name: instalacion. de JAVA 
+      yum: name=java state=present
