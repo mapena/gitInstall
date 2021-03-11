@@ -1,0 +1,11 @@
+  
+---
+- hosts: RH8
+  tasks:
+    - name: instalar java
+      yum: name=java state=latest
+    
+    - name: Extract tar
+      ansible.builtin.unarchive:
+        src: foo.tgz
+        dest: /tmp/foo
