@@ -1,6 +1,5 @@
 ---
-- hosts: local
-  become: true
+- hosts: RH8_3
   tasks:
     - name: instalar java
       yum: name=java state=latest
