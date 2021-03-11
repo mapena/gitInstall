@@ -7,4 +7,4 @@
     - name: Extract tar
       ansible.builtin.unarchive:
         src: git-2.30.0.tar.gz
-        dest: /tmp/git-2.30.0
+        dest: /tmp
