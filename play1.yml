@@ -1,5 +1,0 @@
----
-- hosts: RH8
-  tasks:
-    - name: instalacion. de JAVA 
-      yum: name=java state=present
