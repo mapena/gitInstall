@@ -12,7 +12,7 @@
     - name: instalar java
       yum: name=java state=latest
     
-    - name: Extract tar
+    - name: Extract tar.gz
       ansible.builtin.unarchive:
         src: git-2.30.0.tar.gz
         dest: /tmp
@@ -21,12 +21,15 @@
       yum:
         name: "@Development tools"
         state: present
-
-          gettext-devel
-          openssl-devel
-          perl-CPAN
-          perl-devel
-          zlib-devel   
+    
+    - name: Install paquetitos
+      yum:   
+        name:
+          - gettext-devel
+          - openssl-devel
+          - perl-CPAN
+          - perl-devel
+          - zlib-devel   
 
 
 
