@@ -1,0 +1,52 @@
+---
+- hosts: RH8_3
+  tasks:
+    - name: Remover GIT
+      yum: 
+        name: git
+        state: absent
+        autoremove: true
+ #     notify:
+ #       - "GIT Removido"
+
+ #   - name: instalar java
+ #     yum: name=java state=latest
+    
+    - name: Install the 'Development tools' package group
+      yum:
+        name: "@Development tools"
+        state: present
+    
+    - name: Install paquetitos
+      yum:   
+        name:
+          - gettext-devel
+          - openssl-devel
+          - perl-CPAN
+          - perl-devel
+          - zlib-devel   
+
+    - name: Extract tar.gz
+      ansible.builtin.unarchive:
+        src: git-2.30.0.tar.gz
+        dest: /tmp
+
+    - name: make configure
+      shell: chdir=/tmp/git-2.30.0/ make configure
+
+    - name: ./configure --prefix=/usr/local 
+      shell: chdir=/tmp/git-2.30.0/ ./configure --prefix=/usr/local
+
+    - name: make install
+      shell: chdir=/tmp/git-2.30.0/ make install
+
+    - name: git version
+      shell: git --version > salida.txt
+
+
+
+
+#  handlers:       
+#    - name : GIT Removido
+#      shell: uname -r
+#      service: name=httpd state=stopped
