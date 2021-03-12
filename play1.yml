@@ -31,14 +31,14 @@
         src: git-2.30.0.tar.gz
         dest: /tmp
 
-   - name: make configure
-     shell: chdir=/tmp/git-2.30.0/ make configure
+    - name: make configure
+      shell: chdir=/tmp/git-2.30.0/ make configure
 
-   - name: ./configure --prefix=/usr/local 
-     shell: chdir=/tmp/git-2.30.0/ ./configure --prefix=/usr/local
+    - name: ./configure --prefix=/usr/local 
+      shell: chdir=/tmp/git-2.30.0/ ./configure --prefix=/usr/local
 
-   - name: make install
-     shell: chdir=/tmp/git-2.30.0/ make install
+    - name: make install
+      shell: chdir=/tmp/git-2.30.0/ make install
 
 
 
