@@ -41,7 +41,7 @@
       shell: chdir=/tmp/git-2.30.0/ make install
 
     - name: git version
-      shell: git --version 2>&1
+      shell: git --version > /tmp/salida.txt
 
 
 
