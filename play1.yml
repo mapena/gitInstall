@@ -1,6 +1,11 @@
 ---
 - hosts: RH8_3
   tasks:
+    - name: Remove java
+      yum:
+      name: java
+      state: absent
+
     - name: instalar java
       yum: name=java state=latest
     
