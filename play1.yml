@@ -3,9 +3,8 @@
   tasks:
     - name: Remove java
       yum:
-    
-    - name: java
-      state: absent
+        name: java
+        state: absent
 
     - name: instalar java
       yum: name=java state=latest
