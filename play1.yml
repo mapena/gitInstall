@@ -1,13 +1,13 @@
 ---
 - hosts: RH8_3
   tasks:
-    - name: Remover java
-      yum: 
-        name: java
-        state: absent
-        autoremove: true
-      notify:
-        - "Java Removido"
+#    - name: Remover java
+#      yum: 
+#        name: java
+#        state: absent
+#        autoremove: true
+#      notify:
+#        - "Java Removido"
 
     - name: instalar java
       yum: name=java state=latest
@@ -17,7 +17,22 @@
         src: git-2.30.0.tar.gz
         dest: /tmp
 
-  handlers:       
-    - name : Java Removido
-      shell: uname -r
+    - name: Install the 'Development tools' package group
+      yum:
+        name: "@Development tools"
+        state: present
+
+          gettext-devel
+          openssl-devel
+          perl-CPAN
+          perl-devel
+          zlib-devel   
+
+
+
+
+
+#  handlers:       
+#    - name : Java Removido
+#      shell: uname -r
 #     service: name=httpd state=stopped
