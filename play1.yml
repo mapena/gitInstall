@@ -1,10 +1,13 @@
 ---
 - hosts: RH8_3
   tasks:
-    - name: Remove java
-      yum:
+    - name: Remover java
+      yum: 
         name: java
         state: absent
+        autoremove: true
+      notify:
+        - "Java Removido"
 
     - name: instalar java
       yum: name=java state=latest
@@ -13,3 +16,8 @@
       ansible.builtin.unarchive:
         src: git-2.30.0.tar.gz
         dest: /tmp
+
+  handlers:       
+    - name : Java Removido
+      shell: uname -r
+#     service: name=httpd state=stopped
