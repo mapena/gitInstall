@@ -3,7 +3,8 @@
   tasks:
     - name: Remove java
       yum:
-      name: java
+    
+    - name: java
       state: absent
 
     - name: instalar java
