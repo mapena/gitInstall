@@ -4,3 +4,4 @@
       get_url:
         url: http://192.168.0.57:8081/repository/alm/cloudbees/v1/cloudbees.zip
         dest: /tmp/cloudbees.zip
+        checksum: sha256:60dc66f273b00397163493e10575ccd81f04b5cac7f8e288a97ba37d24092622
