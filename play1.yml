@@ -41,8 +41,7 @@
       shell: chdir=/tmp/git-2.30.0/ make install
 
     - name: git version
-      command: echo "hola"
-#     shell: echo | git --version
+      shell: echo | git --version
 
 
 

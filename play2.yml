@@ -1,4 +1,6 @@
 - hosts: RH8_3
   tasks:
-    - name: instalar java
-      yum: name=java state=latest
+    - name: Download cloudbees.zip
+      get_url:
+        url: http://192.168.0.57:8081/repository/alm/cloudbees/v1/cloudbees.zip
+        dest: /tmp/cloudbees.zip
