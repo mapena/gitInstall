@@ -1,11 +1,11 @@
 ---
 - hosts: RH8_3
   tasks:
-    - name: Remover GIT
-      yum: 
-        name: git
-        state: absent
-        autoremove: true
+#   - name: Remover GIT
+#     yum: 
+#       name: git
+#       state: absent
+#       autoremove: true
  #     notify:
  #       - "GIT Removido"
 
@@ -46,7 +46,7 @@
     - name: make install
       shell: chdir=/tmp/git-2.30.0/ make install
 
-   - name: Remover GIT
+    - name: Remover GIT
       yum:
         name: git
         state: absent
@@ -54,7 +54,7 @@
 #   notify:
 #     - "GIT Removido"
 
-     - name: git version
+    - name: git version
       shell: echo | git --version
 
 
