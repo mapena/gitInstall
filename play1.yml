@@ -28,13 +28,13 @@
 
     - name: Download cloudbees.zip
       get_url:
-        url: http://192.168.0.57:8081/repository/alm/cloudbees/v1/cloudbees.zip
-        dest: /tmp/cloudbees.zip
-        checksum: sha256:60dc66f273b00397163493e10575ccd81f04b5cac7f8e288a97ba37d24092622
+        url: http://192.168.0.57:8081/repository/alm/git/2.30.0/git-2.30.0.tar.gz
+        dest: /tmp/git-2.30.0.tar.gz
+        checksum: sha256:8db4edd1a0a74ebf4b78aed3f9e25c8f2a7db3c00b1aaee94d1e9834fae24e6
 
     - name: Extract tar.gz
       ansible.builtin.unarchive:
-        src: git-2.30.0.tar.gz
+        src: /tmp/git-2.30.0.tar.gz
         dest: /tmp
 
     - name: make configure
