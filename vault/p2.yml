@@ -1,0 +1,19 @@
+---
+- hosts: server2
+  become: true
+  #become: yes
+  become_method: su
+  tasks:
+    - name: instalacion de git 
+      yum: name=git state=present
+
+    - name: comando ls to tmp
+      ansible.builtin.shell:
+         cmd: ls -al / > /tmp/salida.txt
+
+    - name: tmp to etc
+      ansible.builtin.shell:
+         cmd: cp /tmp/salida.txt /etc/
+
+
+
