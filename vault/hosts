@@ -1,0 +1,13 @@
+[local]
+192.168.0.63
+
+[server2]
+192.168.0.64  ansible_become_password="{{ server2 }}"
+
+[server3]
+192.168.0.65
+
+[server23]
+192.168.0.64
+192.168.0.65
+
