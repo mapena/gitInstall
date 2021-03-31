@@ -1,5 +1,5 @@
 ---
-- hosts: RH8_3
+- hosts: server2
   tasks:
 #   - name: Remover GIT
 #     yum: 
@@ -9,8 +9,8 @@
  #     notify:
  #       - "GIT Removido"
 
- #   - name: instalar java
- #     yum: name=java state=latest
+    - name: instalar java
+      yum: name=java state=latest
     
     - name: Install the 'Development tools' package group
       yum:
@@ -26,16 +26,20 @@
           - perl-devel
           - zlib-devel   
 
-    - name: Download cloudbees.zip
+    - name: Download git
       get_url:
-        url: http://192.168.0.57:8081/repository/alm/git/2.30.0/git-2.30.0.tar.gz
+        #url: http://192.168.0.57:8081/repository/alm/git/2.30.0/git-2.30.0.tar.gz
+        #winpro64reabkp3
+        url: http://192.168.0.72:8081/repository/alm/git/2.30.0/git-2.30.0.tar.gz
         dest: /tmp/git-2.30.0.tar.gz
-        checksum: sha256:8db4edd1a0a74ebf4b78aed3f9e25c8f2a7db3c00b1aaee94d1e9834fae24e6
+        #checksum: sha256:8db4edd1a0a74ebf4b78aed3f9e25c8f2a7db3c00b1aaee94d1e9834fae24e6
 
     - name: Extract tar.gz
-      ansible.builtin.unarchive:
+      #ansible.builtin.unarchive:
+      unarchive:
         src: /tmp/git-2.30.0.tar.gz
         dest: /tmp
+        remote_src: yes
 
     - name: make configure
       shell: chdir=/tmp/git-2.30.0/ make configure
@@ -54,11 +58,8 @@
 #   notify:
 #     - "GIT Removido"
 
-    - name: git version
-      shell: echo | git --version
-
-
-
+#    - name: git version
+#      shell: echo | git --version
 
 #  handlers:       
 #    - name : GIT Removido
